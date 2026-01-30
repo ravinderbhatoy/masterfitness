@@ -11,9 +11,11 @@ const Exercises = () => {
   return (
     <div>
       <h2>Exercises</h2>
-      {exercises.map((exercise) => (
-        <div key={exercise.id}>{exercise.name}</div>
-      ))}
+      <ul>
+        {exercises.map((exercise) => (
+          <li key={exercise.id}>{exercise.name}</li>
+        ))}
+      </ul>
     </div>
   );
 };
