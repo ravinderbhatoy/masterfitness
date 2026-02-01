@@ -7,16 +7,20 @@ import Login from "./pages/login.jsx";
 import "./App.css";
 
 function App() {
+  const [isLogin, setIsLogin] = useState(
+    localStorage.getItem("token") ? true : false,
+  );
+
   return (
     <>
       <div>
-        <Login />
+        <Login isLogin={isLogin} setIsLogin={setIsLogin} />
       </div>
       <div>
-        <Exercises />
+        <Exercises isLogin={isLogin} />
       </div>
       <div>
-        <Workouts />
+        <Workouts isLogin={isLogin} />
       </div>
     </>
   );

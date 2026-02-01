@@ -1,11 +1,12 @@
 ## TODO's
 
-[x] - Fetch all exercises
-[x] - Fetch workouts
+1. Fetch all exercises [x]
+2. Fetch workouts [x]
 
 ### Authentication
-[] - Pass credentials to backend
-[] - User specific workouts
-[] - create workout
-[] - add exercises to existing workouts
-[] - update workouts
+
+1. Pass credentials to backend [x]
+2. User specific workouts [x]
+3. create workout []
+4. add exercises to existing workouts []
+5. update workouts []

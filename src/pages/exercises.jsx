@@ -1,12 +1,26 @@
 import { useEffect, useState } from "react";
 import api from "../api/axios";
 
-const Exercises = () => {
+const Exercises = ({ isLogin }) => {
   const [exercises, setExercises] = useState([]);
 
   useEffect(() => {
-    api.get("exercises/").then((res) => setExercises(res.data));
-  }, []);
+    try {
+      setExercises((prev) => []);
+      const tokenExist = localStorage.getItem("token");
+      if (tokenExist) {
+        api
+          .get("exercises/", {
+            headers: {
+              Authorization: `Token ${tokenExist}`,
+            },
+          })
+          .then((res) => setExercises(res.data));
+      }
+    } catch (e) {
+      console.log("Unable to fetch exercises", e);
+    }
+  }, [isLogin]);
 
   return (
     <div>
