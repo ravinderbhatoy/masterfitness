@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../api/axios";
+import Navbar from "../components/navbar";
 
 const Exercises = ({ isLogin }) => {
   const [exercises, setExercises] = useState([]);
@@ -23,14 +24,17 @@ const Exercises = ({ isLogin }) => {
   }, [isLogin]);
 
   return (
-    <div>
-      <h2>Exercises</h2>
-      <ul>
-        {exercises.map((exercise) => (
-          <li key={exercise.id}>{exercise.name}</li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <Navbar isLogin={isLogin} />
+      <div className="container">
+        <h4>Exercises</h4>
+        <ul>
+          {exercises.map((exercise) => (
+            <li key={exercise.id}>{exercise.name}</li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 };
 

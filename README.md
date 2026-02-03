@@ -7,6 +7,8 @@
 
 1. Pass credentials to backend [x]
 2. User specific workouts [x]
-3. create workout []
-4. add exercises to existing workouts []
-5. update workouts []
+3. React-router [x]
+4. all workouts page [x]
+5. create workout []
+6. add exercises to existing workouts []
+7. update workouts []

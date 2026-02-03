@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import api from "../api/axios";
+import Navbar from "../components/navbar";
+import { Link } from "react-router-dom";
 
 const Workouts = ({ isLogin }) => {
   const [workouts, setWorkouts] = useState([]);
@@ -23,14 +25,21 @@ const Workouts = ({ isLogin }) => {
   }, [isLogin]);
 
   return (
-    <div>
-      <h2>workouts</h2>
-      <ul>
-        {workouts.map((workout) => (
-          <div key={workout.id}>Workout on {workout.date}</div>
-        ))}
-      </ul>
-    </div>
+    <>
+      <Navbar isLogin={isLogin} />
+      <div className="container">
+        <h2>workouts</h2>
+        <ul>
+          {workouts.map((workout) => (
+            <li>
+              <Link to={`/workout/${workout.id}`} key={workout.id}>
+                Workout on {workout.date}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 };
 

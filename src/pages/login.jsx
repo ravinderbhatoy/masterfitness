@@ -1,5 +1,6 @@
 import { useState } from "react";
 import api from "../api/axios";
+import Navbar from "../components/navbar";
 
 const Login = ({ isLogin, setIsLogin }) => {
   const [username, setUsername] = useState("");
@@ -39,8 +40,9 @@ const Login = ({ isLogin, setIsLogin }) => {
 
   return (
     <>
+      <Navbar isLogin={isLogin} />
       {!isLogin ? (
-        <div>
+        <div className="container">
           <label htmlFor="username">Username</label>
           <br />
           <input
@@ -59,10 +61,14 @@ const Login = ({ isLogin, setIsLogin }) => {
             onChange={handlePassword}
           />
           <br />
-          <button onClick={handleSubmit}>Login</button>
+          <button className="btn btn-primary" onClick={handleSubmit}>
+            Login
+          </button>
         </div>
       ) : (
-        <button onClick={handleLogout}>Logout</button>
+        <button className="btn btn-danger" onClick={handleLogout}>
+          Logout
+        </button>
       )}
     </>
   );
